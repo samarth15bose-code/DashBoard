@@ -2,7 +2,7 @@ import { Clock, Pill, BellRing } from "lucide-react";
 
 export default function MedicineReminderCard() {
   return (
-    <div className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-purple-500/20 transition">
+    <div className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-purple-500/20 transition h-full">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-purple-400 flex items-center gap-2">

@@ -3,7 +3,10 @@ import { Home, Bell, Activity, Settings } from "lucide-react";
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-gray-800 shadow-lg flex flex-col p-6">
+    <aside className="w-64 bg-gray-800 shadow-lg flex flex-col p-6"   data-aos="fade-right"
+  data-aos-duration="1200"
+  data-aos-delay="100"
+  data-aos-easing="ease-out-cubic">
       <h2 className="text-xl font-bold text-purple-400 mb-10">🔮Alchemist Grimoire</h2>
       <nav className="flex flex-col gap-4 text-gray-300">
         <Link to="/dashboard" className="flex items-center gap-3 hover:text-purple-400 transition">

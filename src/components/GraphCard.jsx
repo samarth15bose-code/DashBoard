@@ -13,7 +13,7 @@ export default function GraphCard() {
   ];
 
   return (
-    <div className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-purple-500/20 transition">
+    <div className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-purple-500/20 transition h-full">
       {/* Header */}
       <h3 className="text-lg font-semibold text-purple-400 mb-4">📊 Daily Progress</h3>
 

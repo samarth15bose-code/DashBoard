@@ -1,8 +1,20 @@
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import DashboardCards from "../components/DashboardCards";
+import AlchemyOrb from "../components/AlchemyOrb";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+import { useEffect } from "react";
 
 export default function Dashboard() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: true,
+      offset: 50,
+    });
+  }, []);
+
   return (
     <div className="flex h-screen bg-gray-900 text-gray-100">
       {/* Sidebar */}
@@ -15,7 +27,7 @@ export default function Dashboard() {
         <main className="p-6 flex-1 overflow-y-auto">
           {/* Header + Buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-            <h2 className="text-3xl font-bold text-purple-400">
+            <h2  className="text-3xl font-bold text-purple-400">
               Welcome back, Alchemist ✨
             </h2>
 
@@ -33,6 +45,8 @@ export default function Dashboard() {
           <DashboardCards />
         </main>
       </div>
+
+      <AlchemyOrb />
     </div>
   );
 }
