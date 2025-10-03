@@ -11,10 +11,25 @@ export default function Dashboard() {
       {/* Main Content */}
       <div className="flex flex-col flex-1">
         <Topbar />
+
         <main className="p-6 flex-1 overflow-y-auto">
-          <h2 className="text-2xl font-semibold mb-6">
-            Welcome back, Alchemist ✨
-          </h2>
+          {/* Header + Buttons */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+            <h2 className="text-3xl font-bold text-purple-400">
+              Welcome back, Alchemist ✨
+            </h2>
+
+            <div className="flex gap-3">
+              <button className="bg-purple-500 hover:bg-purple-600 transition text-white font-medium py-2 px-4 rounded-lg">
+                + Add Medicine
+              </button>
+              <button className="bg-gray-700 hover:bg-gray-600 transition text-gray-200 font-medium py-2 px-4 rounded-lg">
+                Edit Schedule
+              </button>
+            </div>
+          </div>
+
+          {/* All Cards */}
           <DashboardCards />
         </main>
       </div>
