@@ -12,23 +12,14 @@ import { Menu, X } from "lucide-react";
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Initialize AOS
   useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-      offset: 50,
-    });
+    AOS.init({ duration: 1200, once: true, offset: 50 });
   }, []);
 
-  // Close sidebar on Escape key + lock scroll
   useEffect(() => {
-    function onKey(e) {
-      if (e.key === "Escape") setIsSidebarOpen(false);
-    }
+    const onKey = (e) => { if (e.key === "Escape") setIsSidebarOpen(false); };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = isSidebarOpen ? "hidden" : "auto";
-
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "auto";
@@ -40,16 +31,12 @@ export default function Dashboard() {
 
   return (
     <div className="flex h-screen bg-black text-gray-100 relative overflow-hidden">
-      {/* Sidebar Drawer */}
       {isSidebarOpen && (
         <div className="fixed inset-0 z-50 flex">
-          {/* Backdrop */}
           <div
             onClick={closeSidebar}
             className="absolute inset-0 bg-black/50 transition-opacity"
           />
-
-          {/* Sidebar */}
           <div
             className={`relative w-64 bg-black p-4 transform transition-transform duration-300 shadow-[0_0_15px_rgba(255,215,0,0.3)] ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -68,17 +55,13 @@ export default function Dashboard() {
                 <X className="h-6 w-6 text-gray-200" />
               </button>
             </div>
-
             <Sidebar closeSidebar={closeSidebar} />
           </div>
         </div>
       )}
 
-      {/* Main Content */}
       <div className="flex flex-col flex-1">
-        {/* Topbar */}
         <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-black">
-          {/* Hamburger always visible */}
           <button
             onClick={openSidebar}
             className="p-2 rounded-md hover:bg-gray-900 transition"
@@ -86,12 +69,10 @@ export default function Dashboard() {
           >
             <Menu className="h-6 w-6 text-yellow-400" />
           </button>
-
           <Topbar />
         </div>
 
-        <main data-aos="fade-down" className="p-6 flex-1 overflow-y-auto">
-          {/* Header + Buttons */}
+        <main data-aos="fade-down" className="p-8 flex-1 overflow-y-auto min-h-screen">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
             <h2 className="text-3xl font-bold text-yellow-400">
               Welcome back, Alchemist ✨
@@ -107,12 +88,10 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* All Cards */}
           <DashboardCards />
         </main>
       </div>
 
-      {/* Floating Alchemy Orb */}
       <div className="z-30" data-aos="zoom-in">
         <AlchemyOrb />
       </div>

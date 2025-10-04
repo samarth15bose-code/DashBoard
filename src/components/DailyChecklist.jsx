@@ -10,19 +10,15 @@ export default function DailyChecklist() {
   ]);
 
   const toggleTask = (id) => {
-    setTasks(tasks.map(task =>
-      task.id === id ? { ...task, done: !task.done } : task
-    ));
+    setTasks(tasks.map(task => task.id === id ? { ...task, done: !task.done } : task));
   };
 
   return (
-    <div className="bg-black p-6 rounded-2xl shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_25px_rgba(255,215,0,0.5)] transition h-full">
-      {/* Header */}
+    <div className="bg-black p-6 rounded-2xl shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_25px_rgba(255,215,0,0.4)] transition h-full">
       <h3 className="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
         ✅ Daily Checklist
       </h3>
 
-      {/* Task List */}
       <ul className="space-y-3">
         {tasks.map(task => (
           <li
@@ -42,7 +38,6 @@ export default function DailyChecklist() {
         ))}
       </ul>
 
-      {/* Progress */}
       <div className="mt-4 text-sm text-gray-400">
         {tasks.filter(t => t.done).length} of {tasks.length} tasks completed
       </div>
