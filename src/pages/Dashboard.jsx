@@ -39,33 +39,31 @@ export default function Dashboard() {
   const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
-    <div className="flex h-screen bg-gray-900 text-gray-100">
-      {/* --------------------------
-          Off-canvas Sidebar (all screens)
-      ---------------------------*/}
+    <div className="flex h-screen bg-black text-gray-100 relative overflow-hidden">
+      {/* Sidebar Drawer */}
       {isSidebarOpen && (
         <div className="fixed inset-0 z-50 flex">
           {/* Backdrop */}
           <div
             onClick={closeSidebar}
-            className="absolute inset-0 bg-black/50 transition-opacity opacity-100"
+            className="absolute inset-0 bg-black/50 transition-opacity"
           />
 
-          {/* Sidebar Drawer */}
+          {/* Sidebar */}
           <div
-            className={`relative w-64 bg-gray-800 p-4 transform transition-transform duration-300 shadow-lg ${
+            className={`relative w-64 bg-black p-4 transform transition-transform duration-300 shadow-[0_0_15px_rgba(255,215,0,0.3)] ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}
             data-aos="fade-right"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-lg font-semibold text-purple-400">
+              <span className="text-lg font-semibold text-yellow-400">
                 Alchemist’s Grimoire
               </span>
               <button
                 onClick={closeSidebar}
                 aria-label="Close sidebar"
-                className="p-2 rounded-md hover:bg-gray-700 transition"
+                className="p-2 rounded-md hover:bg-gray-900 transition"
               >
                 <X className="h-6 w-6 text-gray-200" />
               </button>
@@ -76,18 +74,17 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* --------------------------
-          Main Content
-      ---------------------------*/}
+      {/* Main Content */}
       <div className="flex flex-col flex-1">
-        {/* Topbar with hamburger */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-700 bg-gray-800">
+        {/* Topbar */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-black">
+          {/* Hamburger always visible */}
           <button
             onClick={openSidebar}
-            className="p-2 rounded-md hover:bg-gray-700 transition"
+            className="p-2 rounded-md hover:bg-gray-900 transition"
             aria-label="Open sidebar"
           >
-            <Menu className="h-6 w-6 text-gray-200" />
+            <Menu className="h-6 w-6 text-yellow-400" />
           </button>
 
           <Topbar />
@@ -96,15 +93,15 @@ export default function Dashboard() {
         <main data-aos="fade-down" className="p-6 flex-1 overflow-y-auto">
           {/* Header + Buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-            <h2 className="text-3xl font-bold text-purple-400">
+            <h2 className="text-3xl font-bold text-yellow-400">
               Welcome back, Alchemist ✨
             </h2>
 
             <div className="flex gap-3">
-              <button className="bg-purple-500 hover:bg-purple-600 transition text-white font-medium py-2 px-4 rounded-lg">
+              <button className="bg-yellow-500 hover:bg-yellow-400 transition text-black font-medium py-2 px-4 rounded-lg shadow-[0_0_10px_rgba(255,215,0,0.3)]">
                 + Add Medicine
               </button>
-              <button className="bg-gray-700 hover:bg-gray-600 transition text-gray-200 font-medium py-2 px-4 rounded-lg">
+              <button className="bg-gray-800 hover:bg-gray-700 transition text-gray-200 font-medium py-2 px-4 rounded-lg">
                 Edit Schedule
               </button>
             </div>

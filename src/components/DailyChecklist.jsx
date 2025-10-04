@@ -16,9 +16,9 @@ export default function DailyChecklist() {
   };
 
   return (
-    <div className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-purple-500/20 transition h-full">
+    <div className="bg-black p-6 rounded-2xl shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_25px_rgba(255,215,0,0.5)] transition h-full">
       {/* Header */}
-      <h3 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
         ✅ Daily Checklist
       </h3>
 
@@ -31,9 +31,9 @@ export default function DailyChecklist() {
             className="flex items-center gap-3 cursor-pointer group"
           >
             {task.done ? (
-              <CheckSquare className="text-purple-400" size={20} />
+              <CheckSquare className="text-yellow-400" size={20} />
             ) : (
-              <Square className="text-gray-500 group-hover:text-purple-300 transition" size={20} />
+              <Square className="text-gray-500 group-hover:text-yellow-400 transition" size={20} />
             )}
             <span className={`text-gray-200 ${task.done ? "line-through text-gray-500" : ""}`}>
               {task.text}
